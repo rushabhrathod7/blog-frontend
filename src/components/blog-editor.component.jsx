@@ -1,7 +1,7 @@
 import { Link, BrowserRouter as Router, useNavigate } from "react-router-dom";
 import logo from "../imgs/logo.png";
 import AnimationWrapper from "../common/page-animation";
-import defaultBanner from "../imgs/Blog banner.png";
+import defaultBanner from "../imgs/blogbanner.png";
 import { uploadImage } from "../common/aws";
 import { useContext, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
