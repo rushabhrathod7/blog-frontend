@@ -9,9 +9,9 @@ const firebaseConfig = {
   apiKey: "AIzaSyCpODgv2uRHh6EqFEyRAVIeyb7oegUb1y8",
   authDomain: "react-js-blog-website-7e3be.firebaseapp.com",
   projectId: "react-js-blog-website-7e3be",
-  storageBucket: "react-js-blog-website-7e3be.appspot.com",
+  storageBucket: "react-js-blog-website-7e3be.firebasestorage.app",
   messagingSenderId: "298002713793",
-  appId: "1:298002713793:web:94e06c7dbb7de2ef281840",
+  appId: "1:298002713793:web:94e06c7dbb7de2ef281840"
 };
 
 // Initialize Firebase
