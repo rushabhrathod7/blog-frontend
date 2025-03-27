@@ -39,7 +39,7 @@ const EditProfile = () => {
   useEffect(() => {
     if (access_token) {
       axios
-        .post(import.meta.env.VITE_SERVER_DOMAIN + "/get-profile", {
+        .post(import.meta.env.VITE_SERVER_DOMAIN + "/api/users/get-profile", {
           username: userAuth.username,
         })
         .then(({ data }) => {
@@ -76,7 +76,7 @@ const EditProfile = () => {
           if (url) {
             axios
               .post(
-                import.meta.env.VITE_SERVER_DOMAIN + "/update-profile-img",
+                import.meta.env.VITE_SERVER_DOMAIN + "/api/users/update-profile-img",
                 { url },
                 {
                   headers: {
@@ -144,7 +144,7 @@ const EditProfile = () => {
 
     axios
       .post(
-        import.meta.env.VITE_SERVER_DOMAIN + "/update-profile",
+        import.meta.env.VITE_SERVER_DOMAIN + "/api/users/update-profile",
         {
           username,
           bio,

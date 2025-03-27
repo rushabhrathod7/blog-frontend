@@ -62,7 +62,7 @@ const BlogEditor = () => {
         })
         .catch((err) => {
           toast.dismiss(loadingToast);
-          return toast.error(err);
+          return toast.error(err.message);
         });
     }
   };
@@ -138,7 +138,7 @@ const BlogEditor = () => {
 
         axios
           .post(
-            import.meta.env.VITE_SERVER_DOMAIN + "/create-blog",
+            import.meta.env.VITE_SERVER_DOMAIN + "/api/blogs/create-blog",
             { ...blogObj, id: blog_id },
             {
               headers: {
@@ -333,7 +333,7 @@ export default BlogEditor;
 //       };
 
 //       await axios.post(
-//         import.meta.env.VITE_SERVER_DOMAIN + "/create-blog",
+//         import.meta.env.VITE_SERVER_DOMAIN + "/api/blogs/create-blog",
 //         blogObj,
 //         {
 //           headers: {

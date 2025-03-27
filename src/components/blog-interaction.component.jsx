@@ -33,7 +33,7 @@ const BlogInteraction = () => {
       // make request to server to get like information
       axios
         .post(
-          import.meta.env.VITE_SERVER_DOMAIN + "/isliked-by-user",
+          import.meta.env.VITE_SERVER_DOMAIN + "/api/blogs/isliked-by-user",
           { _id },
           {
             headers: {
@@ -61,7 +61,7 @@ const BlogInteraction = () => {
 
       axios
         .post(
-          import.meta.env.VITE_SERVER_DOMAIN + "/like-blog",
+          import.meta.env.VITE_SERVER_DOMAIN + "/api/blogs/like-blog",
           { _id, islikedByUser },
           {
             headers: {

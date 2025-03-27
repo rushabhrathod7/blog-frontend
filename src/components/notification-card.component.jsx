@@ -46,7 +46,7 @@ const NotificationCard = ({ data, index, notificationState }) => {
 
     axios
       .post(
-        import.meta.env.VITE_SERVER_DOMAIN + "/delete-comment",
+        import.meta.env.VITE_SERVER_DOMAIN + "/api/blogs/delete-comment",
         { _id: comment_id },
         {
           headers: {

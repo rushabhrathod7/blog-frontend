@@ -1,20 +1,28 @@
 import axios from "axios";
 
 export const uploadImage = async (img) => {
-  let imgUrl = null;
+  try {
+    // Convert File to base64
+    const base64Image = await toBase64(img);
 
-  await axios
-    .get(import.meta.env.VITE_SERVER_DOMAIN + "/get-upload-url")
-    .then(async ({ data: { uploadURL } }) => {
-      await axios({
-        method: "PUT",
-        url: uploadURL,
-        headers: { "Content-Type": "multipart/form-data" },
-        data: img,
-      }).then(() => {
-        imgUrl = uploadURL.split("?")[0];
-      });
-    });
+    const { data } = await axios.post(
+      import.meta.env.VITE_SERVER_DOMAIN + "/get-upload-url",
+      { image: base64Image }
+    );
 
-  return imgUrl;
+    return data.uploadURL;
+  } catch (error) {
+    console.error("Error uploading image:", error);
+    return null;
+  }
+};
+
+// Helper function to convert File to base64
+const toBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
 };

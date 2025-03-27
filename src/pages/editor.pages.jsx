@@ -6,6 +6,7 @@ import PublishForm from "../components/publish-form.component";
 import { useParams } from "react-router-dom";
 import Loader from "../components/loader.component";
 import axios from "axios";
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const blogStructure = {
   title: "",
@@ -35,7 +36,7 @@ const Editor = () => {
     }
 
     axios
-      .post(import.meta.env.VITE_SERVER_DOMAIN + "/get-blog", {
+      .post(import.meta.env.VITE_SERVER_DOMAIN + "/api/blogs/get-blog", {
         blog_id,
         draft: true,
         mode: "edit",
@@ -66,7 +67,9 @@ const Editor = () => {
       ) : loading ? (
         <Loader />
       ) : editorState == "editor" ? (
-        <BlogEditor />
+        <ErrorBoundary>
+          <BlogEditor />
+        </ErrorBoundary>
       ) : (
         <PublishForm />
       )}

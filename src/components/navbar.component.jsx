@@ -21,7 +21,7 @@ const Navbar = () => {
   useEffect(() => {
     if (access_token) {
       axios
-        .get(import.meta.env.VITE_SERVER_DOMAIN + "/new-notification", {
+        .get(import.meta.env.VITE_SERVER_DOMAIN + "/api/notifications/new-notification", {
           headers: {
             Authorization: `Bearer ${access_token}`,
           },
@@ -65,14 +65,16 @@ const Navbar = () => {
             (searchBoxVisibility ? "show" : "hide")
           }
         >
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-full md:w-auto bg-grey p-4 pl-6 pr-[12%] md:pr-6 rounded-full placeholder:text-dark-grey md:pl-12"
-            onKeyDown={handleSearch}
-          />
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-full md:w-auto bg-grey p-4 pl-6 pr-[12%] md:pr-6 rounded-full placeholder:text-dark-grey md:pl-12"
+              onKeyDown={handleSearch}
+            />
 
-          <i className="fi fi-rr-search absolute right-[10%] md:left-5 top-1/2 -translate-y-1/2 text-xl text-dark-grey"></i>
+            <i className="fi fi-rr-search absolute right-[10%] md:left-5 top-1/2 -translate-y-1/2 text-xl text-dark-grey pointer-events-none"></i>
+          </div>
         </div>
 
         <div className="flex items-center gap-3 md:gap-6 ml-auto">
